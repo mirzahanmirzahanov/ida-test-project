@@ -7,6 +7,7 @@
           id="name"
           type="text"
           placeholder="Введите наименование товара"
+          v-model="this.product.name"
         />
         <label class="none-point" for="description">Описание товара</label>
         <textarea
@@ -15,20 +16,28 @@
           cols="30"
           rows="10"
           placeholder="Введите описание товара"
+          v-model="this.product.description"
         />
-        <label for="link">Ссылка на изображение товара</label>
-        <input 
-          id="link" 
-          type="text" 
-          placeholder="Введите ссылку" 
+        <label for="image">Ссылка на изображение товара</label>
+        <input
+          id="image"
+          type="text"
+          placeholder="Введите ссылку"
+          v-model="this.product.image"
         />
         <label for="price">Цена товара</label>
-        <input 
-          id="price" 
-          type="text" 
-          placeholder="Введите цену" 
+        <input
+          id="price"
+          type="text"
+          placeholder="Введите цену"
+          v-model="this.product.price"
         />
-        <button type="submit">Добавить товар</button>
+        <button
+          @click="getProducts"
+          type="submit"
+        >
+          Добавить товар
+        </button>
       </form>
     </div>
   </div>
@@ -36,13 +45,29 @@
 
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   components: {},
   name: "v-form",
-  computed: {},
   props: {},
-  data: () => ({}),
-  methods: {},
+  data: () => ({
+    product: {
+      name: "",
+      description: "",
+      image: "",
+      price: "",
+    },
+  }),
+  computed: {
+    ...mapGetters(["PRODUCTS"]),
+  },
+  methods: {
+    ...mapActions(["GET_PRODUCTS"]),
+    getProducts() {
+      this.GET_PRODUCTS(this.product)
+    }
+  },
 };
 </script>
 
@@ -87,7 +112,7 @@ export default {
       box-shadow: 2px 5px 5px #00000033;
       background: $items-bg;
     }
-    input#price{
+    input#price {
       margin: 0 0 24px 0;
     }
     textarea#description {
@@ -100,11 +125,11 @@ export default {
       border: none;
       background-color: #00000022;
       color: $btn-gray;
-      transition: .2s ease-in-out;
+      transition: 0.2s ease-in-out;
     }
-    button:hover{
+    button:hover {
       background-color: $btn-green;
-      color: #FFF;
+      color: #fff;
     }
   }
 }
