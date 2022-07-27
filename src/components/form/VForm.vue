@@ -48,11 +48,14 @@ export default {
 
 
 <style lang="scss">
+@import "@/assets/styles/scss/variables.scss";
+
 .v-form__container {
+  position: fixed;
   max-width: 330px;
   padding: 24px;
   border-radius: 4px;
-  background: #FFFEFB;
+  background: $items-bg;
   form {
     display: flex;
     flex-direction: column;
@@ -69,7 +72,7 @@ export default {
       position: absolute;
       width: 4px;
       height: 4px;
-      background: #FF8484;
+      background: $red;
       border-radius: 50%;
     }
     label.none-point::after {
@@ -82,7 +85,7 @@ export default {
       border-radius: 4px;
       border: none;
       box-shadow: 2px 5px 5px #00000033;
-      background: #FFFEFB;
+      background: $items-bg;
     }
     input#price{
       margin: 0 0 24px 0;
@@ -96,11 +99,11 @@ export default {
       border-radius: 10px;
       border: none;
       background-color: #00000022;
-      color: #B5B5B5;
+      color: $btn-gray;
       transition: .2s ease-in-out;
     }
     button:hover{
-      background-color: #7BAE73;
+      background-color: $btn-green;
       color: #FFF;
     }
   }
