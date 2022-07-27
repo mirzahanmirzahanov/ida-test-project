@@ -1,5 +1,10 @@
 @import "./variables.scss";
 
+// fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+
 //base styles
 
 *{
@@ -10,7 +15,15 @@
 
 html,
 body {
+	font-family: 'Source Sans Pro', sans-serif !important;
 	height: 100%;
+	background: #E5E5E5;	
+}
+
+
+input, textarea :active, :hover, :focus {
+	outline: 0;
+	outline-offset: 0;
 }
 
 .wrapper {
