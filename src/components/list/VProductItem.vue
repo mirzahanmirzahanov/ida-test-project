@@ -12,6 +12,11 @@
       {{ product.description }}
     </p>
     <p class="v-product-item__price">{{ product.price }}</p>
+    <div 
+      class="v-product-item__delete"
+    >
+      <img src="@/assets/images/trashBox.png" alt="trash-icon">
+    </div>
   </div>
 </template>
 
@@ -41,22 +46,47 @@ export default {
 @import "@/assets/styles/scss/variables.scss";
 
 .v-product-item {
+  cursor: pointer;
+  position: relative;
   width: 100%;
   max-width: 330px;
+  z-index: 5;
   // display: flex;
   // flex-direction: column;
 	// justify-content: space-between;
 	background: $items-bg;
 	border-radius: 4px;
-  img {
-    width: 100%;
-    border-radius: 4px 4px 0 0;
+  &__img {
+    img {
+      width: 100%;
+      border-radius: 4px 4px 0 0;
+    }
   }
   p {
     padding: 16px;
   }
   p:last-child {
     padding: 16px 16px 24px 16px;
+  }
+  &__delete{
+    visibility: hidden;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 10px;
+    top: -10px;
+    right: -10px;
+    background: $red;
+    padding: 8px;
+    z-index: 3;
+    // transition: .3s ease-in-out;
+  }
+
+}
+
+.v-product-item:hover {
+  .v-product-item__delete {
+    visibility: visible;
   }
 }
 </style>
