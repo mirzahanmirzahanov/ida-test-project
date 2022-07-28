@@ -7,7 +7,7 @@
           id="name"
           type="text"
           placeholder="Введите наименование товара"
-          v-model="this.product.name"
+          v-model="this.productData.name"
         />
         <label class="none-point" for="description">Описание товара</label>
         <textarea
@@ -16,24 +16,24 @@
           cols="30"
           rows="10"
           placeholder="Введите описание товара"
-          v-model="this.product.description"
+          v-model="this.productData.description"
         />
         <label for="image">Ссылка на изображение товара</label>
         <input
           id="image"
           type="text"
           placeholder="Введите ссылку"
-          v-model="this.product.image"
+          v-model="this.productData.image"
         />
         <label for="price">Цена товара</label>
         <input
           id="price"
           type="text"
           placeholder="Введите цену"
-          v-model="this.product.price"
+          v-model="this.productData.price"
         />
         <button
-          @click="getProducts"
+          @click="getProducts()"
           type="submit"
         >
           Добавить товар
@@ -52,7 +52,7 @@ export default {
   name: "v-form",
   props: {},
   data: () => ({
-    product: {
+    productData: {
       name: "",
       description: "",
       image: "",
@@ -65,7 +65,7 @@ export default {
   methods: {
     ...mapActions(["GET_PRODUCTS"]),
     getProducts() {
-      let product = {...this.product}
+      let product = {...this.productData}
       // let product = this.product
       this.GET_PRODUCTS(product)
     }

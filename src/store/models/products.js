@@ -1,6 +1,7 @@
 export default {
 	state: {
-		products: JSON.parse(localStorage.getItem('products'))
+		products: JSON.parse(localStorage.getItem('products') || '[]')
+		// products: []
 	},
 	mutations: {
 		SET_PRODUCT(state, product) {

@@ -50,6 +50,7 @@ export default {
 	border-radius: 4px;
   img {
     width: 100%;
+    border-radius: 4px 4px 0 0;
   }
   p {
     padding: 16px;
