@@ -65,7 +65,9 @@ export default {
   methods: {
     ...mapActions(["GET_PRODUCTS"]),
     getProducts() {
-      this.GET_PRODUCTS(this.product)
+      let product = {...this.product}
+      // let product = this.product
+      this.GET_PRODUCTS(product)
     }
   },
 };

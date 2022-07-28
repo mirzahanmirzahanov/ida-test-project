@@ -1,80 +1,37 @@
 <template>
-  <div class="v-product-item">
+  <div 
+    class="v-product-item"
+    v-for="(product, id) in this.products"
+    :key="id"
+  >
     <div class="v-product-item__img">
-      <img src="@/assets/images/camera.png" alt="some fhoto" />
+      <img :src="product.image" alt="some fhoto" />
     </div>
-    <p class="v-product-item__name">Наименование товара</p>
+    <p class="v-product-item__name">{{product.name}}</p>
     <p class="v-product-item__description">
-      Довольно-таки интересное описание товара в несколько строк. Довольно-таки
-      интересное описание товара в несколько строк
+      {{ product.description }}
     </p>
-    <p class="v-product-item__price">10 000 руб.</p>
-  </div>
-  <div class="v-product-item">
-    <div class="v-product-item__img">
-      <img src="@/assets/images/camera.png" alt="some fhoto" />
-    </div>
-    <p class="v-product-item__name">Наименование товара</p>
-    <p class="v-product-item__description">
-      Довольно-таки интересное описание товара в несколько строк. Довольно-таки
-      интересное описание товара в несколько строк
-    </p>
-    <p class="v-product-item__price">10 000 руб.</p>
-  </div>
-  <div class="v-product-item">
-    <div class="v-product-item__img">
-      <img src="@/assets/images/camera.png" alt="some fhoto" />
-    </div>
-    <p class="v-product-item__name">Наименование товара</p>
-    <p class="v-product-item__description">
-      Довольно-таки интересное описание товара в несколько строк. Довольно-таки
-      интересное описание товара в несколько строк
-    </p>
-    <p class="v-product-item__price">10 000 руб.</p>
-  </div>
-  <div class="v-product-item">
-    <div class="v-product-item__img">
-      <img src="@/assets/images/camera.png" alt="some fhoto" />
-    </div>
-    <p class="v-product-item__name">Наименование товара</p>
-    <p class="v-product-item__description">
-      Довольно-таки интересное описание товара в несколько строк. Довольно-таки
-      интересное описание товара в несколько строк
-    </p>
-    <p class="v-product-item__price">10 000 руб.</p>
-  </div>
-  <div class="v-product-item">
-    <div class="v-product-item__img">
-      <img src="@/assets/images/camera.png" alt="some fhoto" />
-    </div>
-    <p class="v-product-item__name">Наименование товара</p>
-    <p class="v-product-item__description">
-      Довольно-таки интересное описание товара в несколько строк. Довольно-таки
-      интересное описание товара в несколько строк
-    </p>
-    <p class="v-product-item__price">10 000 руб.</p>
-  </div>
-  <div class="v-product-item">
-    <div class="v-product-item__img">
-      <img src="@/assets/images/camera.png" alt="some fhoto" />
-    </div>
-    <p class="v-product-item__name">Наименование товара</p>
-    <p class="v-product-item__description">
-      Довольно-таки интересное описание товара в несколько строк. Довольно-таки
-      интересное описание товара в несколько строк
-    </p>
-    <p class="v-product-item__price">10 000 руб.</p>
+    <p class="v-product-item__price">{{ product.price }}</p>
   </div>
 </template>
 
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   components: {},
   name: "v-product-item",
-  computed: {},
+  computed: {
+    ...mapGetters(["PRODUCTS"]),
+  },
   props: {},
-  data: () => ({}),
+  data: () => ({
+    products:[]
+  }),
+  mounted() {
+    this.products = this.PRODUCTS
+  },
   methods: {},
 };
 </script>
