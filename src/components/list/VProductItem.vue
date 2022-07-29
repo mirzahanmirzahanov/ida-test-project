@@ -1,8 +1,8 @@
 <template>
   <div 
     class="v-product-item"
-    v-for="(product, id) in this.products"
-    :key="id"
+    v-for="(product, index) in this.PRODUCTS"
+    :key="index"
   >
     <div class="v-product-item__img">
       <img :src="product.image" alt="some fhoto" />
@@ -13,6 +13,7 @@
     </p>
     <p class="v-product-item__price">{{ product.price }}</p>
     <div 
+      @click="deleteProduct(index)"
       class="v-product-item__delete"
     >
       <img src="@/assets/images/trashBox.png" alt="trash-icon">
@@ -32,12 +33,16 @@ export default {
   },
   props: {},
   data: () => ({
-    products:[]
   }),
-  mounted() {
-    this.products = this.PRODUCTS
+
+  methods: {
+    ...mapActions([
+      'DELETE_PRODUCTS'
+    ]),
+    deleteProduct(index) {
+      this.DELETE_PRODUCTS(index)
+    }
   },
-  methods: {},
 };
 </script>
 
