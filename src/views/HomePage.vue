@@ -21,10 +21,19 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 .home-page {
   padding: 30px;
 	display: flex;
 	justify-content: space-between;
 }
+
+@media (max-width: 720px) {
+	.home-page {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
 </style>

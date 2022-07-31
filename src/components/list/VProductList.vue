@@ -5,6 +5,7 @@
         v-for="(product, index) in this.PRODUCTS"
         :key="index"
         :product="product"
+				:index="index"
       />
     </div>
   </div>
@@ -13,7 +14,7 @@
 
 <script>
 import VProductItem from "./VProductItem.vue";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   components: { VProductItem },
   name: "v-product-list",
@@ -22,19 +23,49 @@ export default {
   },
   props: {},
   data: () => ({}),
-  methods: {},
+  methods: {
+    deleteProduct(index) {
+      this.DELETE_PRODUCTS(index);
+    },
+  },
 };
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 .v-product-list {
-  // align-self: end;
   &__container {
-		display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 0 0 0 20px;
-	}
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .v-product-list {
+    &__container {
+      display: grid;
+      grid-template-columns: repeat(2, 330px);
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 1070px) {
+  .v-product-list {
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .v-product-list {
+    position: relative;
+    padding: 30px 0 0 0;
+  }
 }
 </style>

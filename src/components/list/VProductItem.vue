@@ -1,19 +1,17 @@
 <template>
-  <div 
-    class="v-product-item">
+  <div class="v-product-item">
     <div class="v-product-item__img">
       <img :src="product.image" alt="some fhoto" />
     </div>
-    <p class="v-product-item__name">{{product.name}}</p>
-    <p class="v-product-item__description">
-      {{ product.description }}
-    </p>
-    <p class="v-product-item__price">{{ product.price }}</p>
-    <div 
-      @click="deleteProduct(index)"
-      class="v-product-item__delete"
-    >
-      <img src="@/assets/images/trashBox.png" alt="trash-icon">
+    <div class="v-product-item__info">
+      <p class="v-product-item__name">{{ product.name }}</p>
+      <p class="v-product-item__description">
+        {{ product.description }}
+      </p>
+      <p class="v-product-item__price">{{ product.price }}</p>
+    </div>
+    <div @click="deleteProduct(index)" class="v-product-item__delete">
+      <img src="@/assets/images/trashBox.png" alt="trash-icon" />
     </div>
   </div>
 </template>
@@ -32,18 +30,22 @@ export default {
     product: {
       type: Object,
       default: () => {},
-      required: true
+      required: true,
+    },
+    index: {
+      type: Number,
+      default: () => Number,
+      required: true,
     }
   },
   data: () => ({}),
 
   methods: {
-    ...mapActions([
-      'DELETE_PRODUCTS'
-    ]),
+    ...mapActions(["DELETE_PRODUCTS"]),
     deleteProduct(index) {
-      this.DELETE_PRODUCTS(index)
-    }
+      this.DELETE_PRODUCTS(index);
+      
+    },
   },
 };
 </script>
@@ -53,30 +55,44 @@ export default {
 @import "@/assets/styles/scss/variables.scss";
 
 .v-product-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: s;
   cursor: pointer;
   position: relative;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
   width: 100%;
   max-width: 330px;
-  z-index: 5;
-  // display: flex;
-  // flex-direction: column;
-	// justify-content: space-between;
-	background: $items-bg;
-	border-radius: 4px;
+  height: 100%;
+  max-height: 430px;
+  background: $items-bg;
+  border-radius: 4px;
+
   &__img {
+    width: 330px;
+    height: 200px;
     img {
+      object-fit: cover;
       width: 100%;
+      height: 100%;
       border-radius: 4px 4px 0 0;
     }
   }
-  p {
-    padding: 16px;
+  &__info {
+    position: relative;
+    p {
+      display: block;
+      padding: 16px;
+    }
+    p:last-child {
+      padding: 16px 16px 24px;
+    }
   }
-  p:last-child {
-    padding: 16px 16px 24px 16px;
+  &__description {
+    flex: 1 1 auto;
   }
-  &__delete{
+
+  &__delete {
     visibility: hidden;
     position: absolute;
     width: 16px;
@@ -87,9 +103,7 @@ export default {
     background: $red;
     padding: 8px;
     z-index: 3;
-    // transition: .3s ease-in-out;
   }
-
 }
 
 .v-product-item:hover {
@@ -97,5 +111,4 @@ export default {
     visibility: visible;
   }
 }
-
 </style>

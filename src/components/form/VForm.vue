@@ -10,7 +10,7 @@
           placeholder="Введите наименование товара"
           v-model="this.productData.name"
         />
-        <p class="error-message">Это поле является обязательным</p>
+        <!-- <p class="error-message">Это поле является обязательным</p> -->
         <label class="none-point" for="description">Описание товара</label>
         <textarea
           name=""
@@ -28,7 +28,7 @@
           placeholder="Введите ссылку"
           v-model="this.productData.image"
         />
-        <p class="error-message">Это поле является обязательным</p>
+        <!-- <p class="error-message">Это поле является обязательным</p> -->
         <label for="price">Цена товара</label>
         <input
           class="input input-price"
@@ -37,7 +37,7 @@
           placeholder="Введите цену"
           v-model="this.productData.price"
         />
-        <p class="error-message">Это поле является обязательным</p>
+        <!-- <p class="error-message">Это поле является обязательным</p> -->
         <button class="btn" id="btn"  @click="addProducts()" type="submit">
           Добавить товар
         </button>
@@ -133,7 +133,7 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/assets/styles/scss/variables.scss";
 
 .v-form__container {
@@ -167,23 +167,23 @@ export default {
     input,
     textarea {
       padding: 10px 15px;
-      // margin: 0 0 16px 0;
       border-radius: 4px;
       border: 1px solid rgba(255, 255, 255, 0);
       box-shadow: 2px 5px 5px #00000033;
       background: $items-bg;
       transition: 0.3s ease-in-out;
+      margin: 0 0 20px 0;
     }
-    // input#price {
-    //   margin: 0 0 24px 0;
-    // }
+    .input-price{
+      margin: 0 0 30px 0;
+    }
     input.error {
       border-color: $red;
     }
     textarea#description {
       max-height: 108px;
       resize: none;
-      margin: 0 0 20px 0;
+      
     }
     .btn {
       padding: 10px 15px;
@@ -197,18 +197,15 @@ export default {
       background-color: $btn-green;
       color: #fff;
     }
-    .error-message {
-      color: $red;
-      font-size: 12px;
-      margin: 5px 0;
-      opacity: 0;
-      cursor: default;
-      transition: 0.3s ease-in-out;
-    }
-    .error-visible {
-      opacity: 1;
-    }
   }
+}
+
+@media (max-width: 720px) {
+	.v-form {
+		&__container {
+			position: relative;
+		}
+	}
 }
 </style>
 
