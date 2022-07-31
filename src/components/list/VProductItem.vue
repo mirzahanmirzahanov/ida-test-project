@@ -1,9 +1,6 @@
 <template>
   <div 
-    class="v-product-item"
-    v-for="(product, index) in this.PRODUCTS"
-    :key="index"
-  >
+    class="v-product-item">
     <div class="v-product-item__img">
       <img :src="product.image" alt="some fhoto" />
     </div>
@@ -31,9 +28,14 @@ export default {
   computed: {
     ...mapGetters(["PRODUCTS"]),
   },
-  props: {},
-  data: () => ({
-  }),
+  props: {
+    product: {
+      type: Object,
+      default: () => {},
+      required: true
+    }
+  },
+  data: () => ({}),
 
   methods: {
     ...mapActions([
@@ -53,6 +55,7 @@ export default {
 .v-product-item {
   cursor: pointer;
   position: relative;
+  transition: .3s ease-in-out;
   width: 100%;
   max-width: 330px;
   z-index: 5;
@@ -94,4 +97,5 @@ export default {
     visibility: visible;
   }
 }
+
 </style>
