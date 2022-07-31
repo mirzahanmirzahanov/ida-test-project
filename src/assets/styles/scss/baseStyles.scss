@@ -1,0 +1,37 @@
+//base styles
+
+*{
+	margin: 0;
+	padding: 0;
+	// box-sizing: border-box;
+}
+
+html,
+body {
+	font-family: 'Source Sans Pro', sans-serif !important;
+	height: 100%;
+	background: #E5E5E5;	
+}
+
+
+input, textarea :active, :hover, :focus {
+	outline: 0;
+	outline-offset: 0;
+}
+
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.main {
+	flex: 1 1 auto;
+}
+
+.container {
+	width: 100%;
+	max-width: 1600px;
+	margin: 0 auto;
+}
