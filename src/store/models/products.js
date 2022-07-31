@@ -4,7 +4,8 @@ export default {
 	},
 	mutations: {
 		SET_PRODUCT(state, product) {
-			state.products.push(product)
+			
+			state.products.push(product),
 			localStorage.setItem('products', JSON.stringify(state.products))
 		},
 		DELETE_PRODUCT(state, index) {

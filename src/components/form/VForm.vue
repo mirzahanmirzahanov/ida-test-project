@@ -38,7 +38,9 @@
           v-model="this.productData.price"
         />
         <p class="error-message">Это поле является обязательным</p>
-        <button @click="addProducts()" type="submit">Добавить товар</button>
+        <button class="btn" id="btn"  @click="addProducts()" type="submit">
+          Добавить товар
+        </button>
       </form>
     </div>
   </div>
@@ -59,12 +61,27 @@ export default {
       image: "",
       price: "",
     },
+    isValidData: false,
   }),
   computed: {
     ...mapGetters(["PRODUCTS"]),
+    isValidation() {
+      let btn = document.getElementById("btn");
+      if ((this.isValidData = true)) {
+        btn.classList.add("btn-success");
+        setTimeout(() => {
+          btn.classList.remove("btn-success");
+        }, 300),
+        this.isValidData = false;
+        console.log(this.isValidData);
+      }
+    },
   },
+
+
   methods: {
     ...mapActions(["GET_PRODUCTS"]),
+
     addProducts() {
       let form = document.querySelector(".form"),
         formInputs = document.querySelectorAll(".input"),
@@ -83,7 +100,7 @@ export default {
           emptyInputs = Array.from(formInputs).filter(
             (input) => input.value === ""
           );
-        
+
         //проверка инпутов на пустоту
         formInputs.forEach(function (input) {
           if (input.value === "") {
@@ -103,9 +120,11 @@ export default {
           inputPrice.classList.add("error");
           return false;
         } else {
+          vm.isValidData = true;
           inputPrice.classList.remove("error");
           let product = { ...vm.productData };
           vm.GET_PRODUCTS(product);
+          vm.isValidation
         }
       };
     },
@@ -114,7 +133,7 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/assets/styles/scss/variables.scss";
 
 .v-form__container {
@@ -166,7 +185,7 @@ export default {
       resize: none;
       margin: 0 0 20px 0;
     }
-    button {
+    .btn {
       padding: 10px 15px;
       border-radius: 10px;
       border: none;
@@ -174,7 +193,7 @@ export default {
       color: $btn-gray;
       transition: 0.2s ease-in-out;
     }
-    button:hover {
+    .btn-success {
       background-color: $btn-green;
       color: #fff;
     }
