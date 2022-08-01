@@ -1,7 +1,10 @@
 <template>
   <div class="home-page">
-    <v-form />
-    <v-product-list />
+    <v-header/>
+    <div class="home-page__main">
+      <v-form />
+      <v-product-list />
+    </div>
   </div>
 </template>
 
@@ -9,9 +12,14 @@
 <script>
 import VProductList from "@/components/list/VProductList";
 import VForm from "@/components/form/VForm";
+import VHeader from '@/components/layout/vHeader.vue';
 
 export default {
-  components: { VForm, VProductList },
+  components: { 
+    VForm, 
+    VProductList, 
+    VHeader
+  },
   name: "home-page",
   computed: {},
   props: {},
@@ -24,16 +32,19 @@ export default {
 <style lang="scss" scoped>
 .home-page {
   padding: 30px;
-	display: flex;
-	justify-content: space-between;
+  &__main {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 @media (max-width: 720px) {
-	.home-page {
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
+  .home-page {
+    &__main {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
-
 </style>
