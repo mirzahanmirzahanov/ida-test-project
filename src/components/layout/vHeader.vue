@@ -1,6 +1,5 @@
 <template>
   <div class="v-header">
-		<!-- <h1>Добавить товар</h1> -->
 		<div></div>
     <v-select
       :options="selectOptions"
@@ -32,9 +31,6 @@ export default {
     selected: { name: "Выберите фильтр", value: 0 },
     products: [],
   }),
-  // mounted() {
-  //   this.products = [...this.PRODUCTS];
-  // },
   methods: {
     showSelectedOption(option) {
       this.selected = option;
@@ -54,9 +50,6 @@ export default {
           break;
         case 3:
           console.log("Функция пока не работает :)");
-          // this.PRODUCTS.sort((a, b) => {
-					// 		return b.name > a.name;
-          // });
           break;
       }
     },

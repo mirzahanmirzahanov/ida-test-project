@@ -30,8 +30,10 @@ export default {
 
 
 <style lang="scss" scoped>
+
 .home-page {
   padding: 30px;
+  
   &__main {
     display: flex;
     justify-content: space-between;
@@ -39,6 +41,7 @@ export default {
 }
 
 @media (max-width: 720px) {
+  
   .home-page {
     &__main {
       flex-direction: column;

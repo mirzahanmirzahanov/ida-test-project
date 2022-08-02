@@ -11,7 +11,6 @@
           placeholder="Введите наименование товара"
           v-model="this.productData.name"
         />
-        <!-- <p class="error-message">Это поле является обязательным</p> -->
         <label class="none-point" for="description">Описание товара</label>
         <textarea
           name=""
@@ -29,7 +28,6 @@
           placeholder="Введите ссылку"
           v-model="this.productData.image"
         />
-        <!-- <p class="error-message">Это поле является обязательным</p> -->
         <label for="price">Цена товара</label>
         <input
           class="input input-price"
@@ -38,7 +36,6 @@
           placeholder="Введите цену"
           v-model="this.productData.price"
         />
-        <!-- <p class="error-message">Это поле является обязательным</p> -->
         <button class="btn" id="btn" @click="addProducts()" type="submit">
           Добавить товар
         </button>
@@ -137,18 +134,22 @@ export default {
 @import "@/assets/styles/scss/variables.scss";
 
 .v-form {
+
   h1 {
     margin: -60px 0 20px 0;
   }
+  
   &__container {
     position: fixed;
     max-width: 330px;
     padding: 24px;
     border-radius: 4px;
     background: $items-bg;
+
     form {
       display: flex;
       flex-direction: column;
+
       label {
         display: inline;
         position: relative;
@@ -156,6 +157,7 @@ export default {
         font-size: 14px;
         letter-spacing: -0.2px;
       }
+
       label::after {
         content: "";
         display: inline;
@@ -165,29 +167,35 @@ export default {
         background: $red;
         border-radius: 50%;
       }
+
       label.none-point::after {
         content: none;
       }
+
       input,
       textarea {
         padding: 10px 15px;
         border-radius: 4px;
-        border: 1px solid rgba(255, 255, 255, 0);
+        border: 1px solid #ffffff00;
         box-shadow: 2px 5px 5px #00000033;
         background: $items-bg;
         transition: 0.3s ease-in-out;
         margin: 0 0 20px 0;
       }
+
       .input-price {
         margin: 0 0 30px 0;
       }
+
       input.error {
         border-color: $red;
       }
+
       textarea#description {
         max-height: 108px;
         resize: none;
       }
+
       .btn {
         padding: 10px 15px;
         border-radius: 10px;
@@ -196,6 +204,7 @@ export default {
         color: $btn-gray;
         transition: 0.2s ease-in-out;
       }
+
       .btn-success {
         background-color: $btn-green;
         color: #fff;
@@ -205,11 +214,14 @@ export default {
 }
 
 @media (max-width: 720px) {
+
   .v-form {
+
     h1 {
       font-size: 24px;
       margin: -55px 0 25px 0;
     }
+
     &__container {
       position: relative;
     }

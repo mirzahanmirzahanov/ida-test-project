@@ -62,6 +62,7 @@ export default {
   width: 100%;
   max-width: 120px;
 	border-radius: 4px 4px 0 0;
+
   p {
     text-align: center;
     cursor: pointer;
@@ -70,11 +71,13 @@ export default {
 		border-radius: 4px;
 		color: $btn-gray;
   }
+
   .title,
 	.options {
 		background: $items-bg;
 		border-radius: 4px;
   }
+  
   .options {
     width: 100%;
     max-width: 120px;

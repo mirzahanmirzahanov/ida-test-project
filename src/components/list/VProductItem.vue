@@ -57,7 +57,7 @@ export default {
 .v-product-item {
   display: flex;
   flex-direction: column;
-  justify-content: s;
+  justify-content: space-between;
   cursor: pointer;
   position: relative;
   transition: 0.3s ease-in-out;
@@ -107,6 +107,7 @@ export default {
 }
 
 .v-product-item:hover {
+  
   .v-product-item__delete {
     visibility: visible;
   }

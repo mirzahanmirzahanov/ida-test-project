@@ -5,7 +5,7 @@
         v-for="(product, index) in this.PRODUCTS"
         :key="index"
         :product="product"
-				:index="index"
+        :index="index"
       />
     </div>
   </div>
@@ -33,7 +33,9 @@ export default {
 
 
 <style lang="scss" scoped>
+
 .v-product-list {
+
   &__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -42,6 +44,7 @@ export default {
 }
 
 @media (max-width: 1400px) {
+
   .v-product-list {
     &__container {
       display: grid;
@@ -52,6 +55,7 @@ export default {
 }
 
 @media (max-width: 1070px) {
+
   .v-product-list {
     &__container {
       display: flex;
@@ -63,6 +67,7 @@ export default {
 }
 
 @media (max-width: 720px) {
+  
   .v-product-list {
     position: relative;
     padding: 30px 0 0 0;
