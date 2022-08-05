@@ -59,10 +59,17 @@ export default {
 
 
 <style lang="scss" scoped>
+
 .v-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0 0 20px 0;
 }
 
@@ -72,5 +79,4 @@ export default {
 		margin: 20px auto;
 	}
 }
-
 </style>

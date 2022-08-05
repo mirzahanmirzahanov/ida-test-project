@@ -36,7 +36,7 @@ export default {
       type: Number,
       default: () => Number,
       required: true,
-    }
+    },
   },
   data: () => ({}),
 
@@ -44,7 +44,6 @@ export default {
     ...mapActions(["DELETE_PRODUCTS"]),
     deleteProduct(index) {
       this.DELETE_PRODUCTS(index);
-      
     },
   },
 };
@@ -55,11 +54,20 @@ export default {
 @import "@/assets/styles/scss/variables.scss";
 
 .v-product-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   cursor: pointer;
   position: relative;
+  -webkit-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   width: 100%;
   max-width: 330px;
@@ -72,6 +80,7 @@ export default {
     width: 330px;
     height: 200px;
     img {
+      -o-object-fit: cover;
       object-fit: cover;
       width: 100%;
       height: 100%;
@@ -89,6 +98,8 @@ export default {
     }
   }
   &__description {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
   }
 
@@ -107,7 +118,6 @@ export default {
 }
 
 .v-product-item:hover {
-  
   .v-product-item__delete {
     visibility: visible;
   }
