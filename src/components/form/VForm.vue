@@ -133,6 +133,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/styles/scss/variables.scss";
 
+
 .v-form {
 
   h1 {
@@ -147,8 +148,13 @@ export default {
     background: $items-bg;
 
     form {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
 
       label {
         display: inline;
@@ -177,10 +183,14 @@ export default {
         padding: 10px 15px;
         border-radius: 4px;
         border: 1px solid #ffffff00;
-        box-shadow: 2px 5px 5px #00000033;
+        -webkit-box-shadow: 2px 5px 5px #00000033;
+                box-shadow: 2px 5px 5px #00000033;
         background: $items-bg;
+        -webkit-transition: 0.3s ease-in-out;
+        -o-transition: 0.3s ease-in-out;
         transition: 0.3s ease-in-out;
         margin: 0 0 20px 0;
+        font-size: 14px;
       }
 
       .input-price {
@@ -202,6 +212,8 @@ export default {
         border: none;
         background-color: #00000022;
         color: $btn-gray;
+        -webkit-transition: 0.2s ease-in-out;
+        -o-transition: 0.2s ease-in-out;
         transition: 0.2s ease-in-out;
       }
 
@@ -218,8 +230,8 @@ export default {
   .v-form {
 
     h1 {
-      font-size: 24px;
-      margin: -55px 0 25px 0;
+      font-size: 22px;
+      margin: -50px 0 25px 0;
     }
 
     &__container {
