@@ -49,7 +49,9 @@ export default {
           });
           break;
         case 3:
-          console.log("Функция пока не работает :)");
+          this.PRODUCTS.sort((minName, maxName) => {
+            return minName.name > maxName.name;
+          });
           break;
       }
     },
